@@ -1,4 +1,5 @@
 package Datadriventesting;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -11,32 +12,44 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DWSApp {
+
 	public static void main(String[] args) throws IOException {
-		FileInputStream fis = new FileInputStream("./src/test/resources/DDT/commondata.properties");
+
+		FileInputStream fis = new FileInputStream(".\\src\\test\\resources\\DDT\\DWS.properties");
+
 		Properties p = new Properties();
 		p.load(fis);
+
 		String browser = p.getProperty("browser");
-		String url=p.getProperty("url");
-		String username =p.getProperty("username");
+		String url = p.getProperty("url");
+		String username = p.getProperty("username");
 		String password = p.getProperty("password");
-		
+
 		WebDriver driver = null;
-		if(browser.equals("chrome")) {
+
+		if (browser.equals("chrome")) {
 			driver = new ChromeDriver();
 		}
-		if(browser.equals("edge")) {
+
+		if (browser.equals("edge")) {
 			driver = new EdgeDriver();
 		}
-		if(browser.equals("firefox")) {
-			driver = new FirefoxDriver();	
+
+		if (browser.equals("firefox")) {
+			driver = new FirefoxDriver();
 		}
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		driver.get(url);
-		driver.findElement(By.xpath("//a[text()='Log in']")).click();
-		driver.findElement(By.id("Email")).sendKeys("username");
-		driver.findElement(By.id("Password")).sendKeys("password");
-		driver.findElement(By.cssSelector("[value='Log in']")).click();
-	}
 
+		driver.get(url);
+
+		driver.findElement(By.linkText("Log in")).click();
+
+		driver.findElement(By.id("Email")).sendKeys(username);
+		driver.findElement(By.id("Password")).sendKeys(password);
+
+		driver.findElement(By.cssSelector("input[value='Log in']")).click();
+
+	}
 }
