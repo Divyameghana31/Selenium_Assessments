@@ -13,11 +13,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DemoWebApp {
 	public static void main(String[] args) throws Exception {
 		// Step 1: Read data from JSON file
-		FileReader fir = new FileReader("./src/test/resources/DDT/data.json");
+		FileReader fir = new FileReader(".\\src\\test\\resources\\DDT\\Spiders.json");
 		JSONParser pars = new JSONParser();
 		JSONObject js = (JSONObject) pars.parse(fir);
 		String browser = (String) js.get("browser");
-		String name = (String) js.get("name");
+		String username = (String) js.get("username");
 		String password = (String) js.get("password");
 		String url = (String) js.get("url");
 		// Step 2: Launch browser
@@ -36,7 +36,7 @@ public class DemoWebApp {
 		// Step 3: Navigate to application
 		driver.get(url);
 		// Step 4: Enter data
-		driver.findElement(By.id("username")).sendKeys(name);
+		driver.findElement(By.id("username")).sendKeys(username);
 		driver.findElement(By.id("password")).sendKeys(password);
 		// Step 5: Click Submit
 		driver.findElement(By.id("button-login-submit")).click();
