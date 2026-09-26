@@ -1,0 +1,6 @@
+From,To,Flight #,Airline,Price,inputName,address,city,state,zipCode,cardType,creditCardNumber,creditCardMonth,creditCardYear,nameOnCard
+Paris,Buenos Aires,43,Virgin America,$472.56,abc,ety,dfghj,rtyu,567,visa,8521,11,2020,abc
+Philadelphia,Rome,234,United Airlines,$432.98,def,dfghj,yui,ghjk,7890,visa,6789,12,2025,def
+Boston,London,9696,Aer Lingus, 	$200.98,ghk,ertyu,nmj,vbnm,456,visa,789,11,2019,ghk
+Portland,Berlin,12,Virgin America,$765.32,lmn,cvbnm,tyui,srt,567,visa,789,12,2085,lmn
+San Diego,New York,4346, 	Lufthansa, 	$233.98,opq,hjk,cghyvubnm,yui,23456,visa,3456,10,2058,opq
